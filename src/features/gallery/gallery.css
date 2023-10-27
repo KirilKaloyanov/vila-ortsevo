@@ -1,0 +1,144 @@
+
+
+.main {
+    width: fit-content;
+    margin: auto;
+}
+
+.gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, clamp(10rem, 30vw, 30rem));
+    grid-template-rows: repeat(14, clamp(10rem, 30vw, 30rem));
+}
+
+img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.photo {
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.photo1 {
+    background-image: url('../../assets/img/homeViewSunny.jpg');
+}
+
+.photo2 {
+    background-image: url('../../assets/img/bedroom.jpg');
+}
+
+.photo3 {
+    background-image: url('../../assets/img/homeViewRight.jpg');
+}
+
+.photo4 {
+    background-image: url('../../assets/img/bedroomView.jpg');
+}
+
+.photo5 {
+    background-image: url('../../assets/img/bench.jpg');
+}
+
+.photo7 {
+    background-image: url('../../assets/img/fire.jpg');
+}
+
+.photo8 {
+    background-image: url('../../assets/img/homeViewProfile.jpg');
+}
+
+.photo9 {
+    background-image: url('../../assets/img/homeViewSnowpatch.jpg');
+}
+
+.photo10 {
+    background-image: url('../../assets/img/homeViewSunny.jpg');
+}
+
+.photo11 {
+    background-image: url('../../assets/img/homeViewTent.jpg');
+}
+
+.photo12 {
+    background-image: url('../../assets/img/homeViewVertical.jpg');
+}
+
+.photo13 {
+    background-image: url('../../assets/img/homeViewWelcome.jpg');
+}
+
+.photo14 {
+    background-image: url('../../assets/img/homeViewWinter.jpg');
+}
+
+.photo15 {
+    background-image: url('../../assets/img/img1.jpg');
+}
+
+.photo16 {
+    background-image: url('../../assets/img/img2.jpg');
+}
+
+.photo17 {
+    background-image: url('../../assets/img/img3.jpg');
+}
+
+.photo18 {
+    background-image: url('../../assets/img/img4.jpg');
+}
+
+.photo19 {
+    background-image: url('../../assets/img/img5.jpg');
+}
+
+.photo20 {
+    background-image: url('../../assets/img/img6.jpg');
+}
+
+.photo21 {
+    background-image: url('../../assets/img/img7.jpg');
+}
+
+.photo22 {
+    background-image: url('../../assets/img/img8.jpg');
+}
+
+.photo23 {
+    background-image: url('../../assets/img/img9.jpg');
+}
+
+.photo24 {
+    background-image: url('../../assets/img/imh1.jpg');
+}
+
+.photo25 {
+    background-image: url('../../assets/img/imh2.jpg');
+}
+
+.photo26 {
+    background-image: url('../../assets/img/imh3.jpg');
+}
+
+.photo27 {
+    background-image: url('../../assets/img/imh4.jpg');
+}
+
+.photo28 {
+    background-image: url('../../assets/img/imh5.jpg');
+}
+
+.photo29 {
+    background-image: url('../../assets/img/imh6.jpg');
+}
+
+.wide {
+    grid-column: span 2 / auto;
+}
+
+.tall {
+    grid-row: span 2 / auto;
+}
