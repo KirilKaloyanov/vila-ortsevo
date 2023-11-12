@@ -1,9 +1,5 @@
 
 
-.main {
-    width: fit-content;
-    margin: auto;
-}
 
 .gallery {
     display: grid;
@@ -133,6 +129,14 @@ img {
 
 .photo29 {
     background-image: url('../../assets/img/imh6.jpg');
+}
+
+.photo30 {
+    background-image: url('../../assets/img/lunch.jpg');
+}
+
+.photo31 {
+    background-image: url('../../assets/img/tea.jpg');
 }
 
 .wide {

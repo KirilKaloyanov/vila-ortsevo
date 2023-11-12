@@ -1,30 +1,74 @@
-import { MapContainer, TileLayer,GeoJSON, Marker } from "react-leaflet";
-import * as ortsevoAvramovo from '../../assets/json/data.json'
-
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import * as ortsevoBabyak from "../../assets/json/ortsevo-babyak.json";
+import * as ortsevoZlataritsa from "../../assets/json/ortsevo-zlataritsa.json";
+import * as ortsevoCircle from "../../assets/json/ortsevo-circle.json";
+import * as ortsevoAvramovo from "../../assets/json/ortsevo-avramovo.json";
+import house from "../../assets/png/house.png";
+import hut from "../../assets/png/hut.png";
+import css from "./touristMap.module.css";
 
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
 
 export default function Map() {
+  const customIconHouse = new L.icon({
+    iconUrl: house,
+    iconSize: [28, 28],
+  });
+
+  const customIconHut = new L.icon({
+    iconUrl: hut,
+    iconSize: [28, 28],
+  });
+
   return (
     <section>
-      <h3>Карта</h3>
+      <h3>Пешеходни маршрути</h3>
       <MapContainer
-        center={[41.963205, 23.729939]}
+        center={[41.977205, 23.729939]}
         zoom={12}
         scrollWheelZoom={false}
         className="map_container"
       >
-      <TileLayer
-        url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-        maxZoom={17} // Optional: Set a maximum zoom level
-        attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> contributors'
-      />
+        <TileLayer
+          url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+          maxZoom={17} // Optional: Set a maximum zoom level
+          attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> contributors'
+        />
 
-        <Marker position={[41.963205, 23.729939]} />
-        <GeoJSON data={ortsevoAvramovo}></GeoJSON>
+        <Marker position={[41.963205, 23.729939]} icon={customIconHouse}>
+          <Popup>
+            <span className={css.balloon}>Вила Орцево</span>
+          </Popup>
+        </Marker>
+        <Marker position={[41.9729, 23.755446]} icon={customIconHut}>
+          <Popup>
+            <span className={css.balloon}>Заслон Велийца</span>
+          </Popup>
+        </Marker>
+        <GeoJSON data={ortsevoBabyak} style={{ color: "red" }}>
+          <Popup>
+            <span className={css.balloon}>с. Орцево - вр. Бабяшка чука</span>
+          </Popup>
+        </GeoJSON>
+        <GeoJSON data={ortsevoZlataritsa} style={{ color: "green" }}>
+          <Popup>
+            <span className={css.balloon}>с. Орцево - с. Златарица</span>
+          </Popup>
+        </GeoJSON>
+        <GeoJSON data={ortsevoCircle} style={{ color: "yellow" }}>
+          <Popup>
+            <span className={css.balloon}>
+              с. Орцево - с. Черешово - с. Бабяк - с. Орцево
+            </span>
+          </Popup>
+        </GeoJSON>
+        <GeoJSON data={ortsevoAvramovo}>
+          <Popup>
+            <span className={css.balloon}>с. Орцево - гара Аврамово</span>
+          </Popup>
+        </GeoJSON>
       </MapContainer>
-
-      
     </section>
   );
 }

@@ -8,7 +8,7 @@
   height: 200vh;
   font-family: "Ysabeau Infant", sans-serif;
   font-size: 62.5%;
-  --primary-color: hsl(0, 82%, 39%);
+  --primary-color: rgb(181, 18, 18);
   --secondary-color: hsl(17, 44%, 65%); /* 17, 75%, 67% */
   --light-color: hsl(15, 32%, 90%);
   --dark-color: #2b2a4c;
@@ -40,17 +40,90 @@
 body {
   margin: 0;
   /* background-color: var(--primary-color); */
+
+
+}
+
+a {
+  color:inherit;
+  font-family: inherit;
+  text-decoration: none;
 }
 
 h3 {
   font-size: 4rem;
   color: var(--primary-color);
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  padding-top: 8rem;
+  margin-bottom: 2.5rem;
+}
+
+h4{
+  margin-top: 0;
+  padding-top: 4rem;
 }
 
 .map_container {
   margin: 0 auto;
   max-width: 92rem;
   height: 50rem;
+}
+
+
+.balloon {
+  font-family: "Arial";
+  font-size: 14px;
+}
+
+.main {
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 5rem;
+}
+
+
+.backgroundWhite {
+  background-color: white;
+}
+
+.textBox {
+  max-width: 92rem;
+  color: black;
+  font-size: 2.8rem;
+  line-height: 1.4;
+  word-spacing: 9px;
+  letter-spacing: -1.1px;
+}
+
+@media screen and (max-width: 920px) {
+.textBox {
+  max-width: 82vw;
+}
+}
+
+.footerContainer {
+  background-color: var(--primary-color);
+}
+
+.footerText{
+  font-size: 2.4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  
+}
+
+.gridItem {
+  justify-self: center;
+  padding: 2rem;
 }
