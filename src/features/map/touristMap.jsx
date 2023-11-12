@@ -6,6 +6,7 @@ import * as ortsevoCircle from "../../assets/json/ortsevo-circle.json";
 import * as ortsevoAvramovo from "../../assets/json/ortsevo-avramovo.json";
 import house from "../../assets/png/house.png";
 import hut from "../../assets/png/hut.png";
+import pin from "../../assets/png/pin.png";
 import css from "./touristMap.module.css";
 
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
@@ -18,6 +19,11 @@ export default function Map() {
 
   const customIconHut = new L.icon({
     iconUrl: hut,
+    iconSize: [28, 28],
+  });
+
+  const customIconPin = new L.icon({
+    iconUrl: pin,
     iconSize: [28, 28],
   });
 
@@ -51,11 +57,23 @@ export default function Map() {
             <span className={css.balloon}>с. Орцево - вр. Бабяшка чука</span>
           </Popup>
         </GeoJSON>
+        <Marker position={[41.963309, 23.673188]} icon={customIconPin}>
+          <Popup>
+            <span className={css.balloon}>Вр. Бабяшка Чука</span>
+          </Popup>
+        </Marker>
+
         <GeoJSON data={ortsevoZlataritsa} style={{ color: "green" }}>
           <Popup>
             <span className={css.balloon}>с. Орцево - с. Златарица</span>
           </Popup>
         </GeoJSON>
+        <Marker position={[41.922077, 23.755452]} icon={customIconPin}>
+          <Popup>
+            <span className={css.balloon}>с. Златарица</span>
+          </Popup>
+        </Marker>
+
         <GeoJSON data={ortsevoCircle} style={{ color: "yellow" }}>
           <Popup>
             <span className={css.balloon}>
@@ -63,11 +81,19 @@ export default function Map() {
             </span>
           </Popup>
         </GeoJSON>
+
+
         <GeoJSON data={ortsevoAvramovo}>
           <Popup>
-            <span className={css.balloon}>с. Орцево - гара Аврамово</span>
+            <span className={css.balloon}>с. Орцево - с. Аврамово</span>
           </Popup>
         </GeoJSON>
+        <Marker position={[42.036615, 23.820367]} icon={customIconPin}>
+          <Popup>
+            <span className={css.balloon}>ЖП гара Аврамово</span>
+          </Popup>
+        </Marker>
+
       </MapContainer>
     </section>
   );
