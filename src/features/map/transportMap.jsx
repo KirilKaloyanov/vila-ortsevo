@@ -2,12 +2,17 @@ import { MapContainer, TileLayer, GeoJSON, Popup, Marker } from "react-leaflet";
 import plovdivOrtsevo from "../../assets/json/Plovdiv-Ortsevo.json";
 import sofiaOrtsevo from "../../assets/json/Sofia-VilaOrtsevo.json";
 import house from "../../assets/png/house.png";
+import pin from "../../assets/png/pin.png";
 
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
 
 export default function TrapnsportMap() {
   const customIconHouse = new L.icon({
     iconUrl: house,
+    iconSize: [28, 28],
+  });
+  const customIconPin = new L.icon({
+    iconUrl: pin,
     iconSize: [28, 28],
   });
 
@@ -27,6 +32,8 @@ export default function TrapnsportMap() {
         />
 
         <Marker position={[41.963205, 23.729939]} icon={customIconHouse} />
+        <Marker position={[42.6977245, 23.3218762]} icon={customIconPin} />
+        <Marker position={[42.1354016, 24.7452921]} icon={customIconPin} />
 
         <GeoJSON data={sofiaOrtsevo} style={{ color: "darkblue" }}>
           <Popup>

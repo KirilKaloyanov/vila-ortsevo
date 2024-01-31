@@ -17,13 +17,20 @@ const useFetchWeather = (key) => {
     queryKey: [key],
     queryFn: () => {
       // return fetch(BASE_URL + endpoints[key as keyof typeof endpoints]).then(
-      return fetch(BASE_URL + endpoints[key]).then(
-        // ).then(
-        (res) => {
-          if (!res.ok) throw new Error("Request failed.");
-          return res.json();
-        }
-      );
+      return fetch(BASE_URL + endpoints[key])
+        .then(
+          // ).then(
+          (res) => {
+            if (!res.ok) throw new Error("Request failed.");
+            return res.json();
+          }
+        )
+        .catch((err) =>
+          console.log(
+            "Error in request, e.g. too many requests for today.",
+            err
+          )
+        );
     },
   });
 };

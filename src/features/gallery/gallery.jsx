@@ -1,42 +1,67 @@
-import './gallery.css'
+import { useState } from "react";
+import "./gallery.css";
 
 export default function Gallery() {
-    return (
-        <div className="backgroundWhite">
-            <section className='main'>
-            <h3> Галерия </h3>
-            <div className='gallery'>
-                <div className='photo wide photo1'></div>
-                <div className='photo photo14'></div>
-                <div className='photo tall photo7'></div>
-                <div className='photo photo4'></div>
-                <div className='photo photo11'></div>
-                <div className='photo wide photo5'></div>
-                <div className='photo wide photo30'></div>
-                <div className='photo photo31'></div>
-                <div className='photo tall photo16'></div>
-                <div className='photo wide photo3'></div>
-                <div className='photo wide tall photo2'></div>
-                <div className='photo tall photo15'></div>
-                <div className='photo tall photo13'></div>
-                <div className='photo photo9'></div>
-                <div className='photo tall photo12'></div>
-                <div className='photo photo17'></div>
-                <div className='photo wide photo8'></div>
-                <div className='photo wide photo18'></div>
-                <div className='photo tall photo19'></div>
-                <div className='photo photo20'></div>
-                <div className='photo photo21'></div>
-                <div className='photo tall photo23'></div>
-                <div className='photo wide photo22'></div>
-                <div className='photo photo25'></div>
-                <div className='photo photo26'></div>
-                <div className='photo photo27'></div>
-                <div className='photo wide photo24'></div>
-                <div className='photo wide photo28'></div>
-                <div className='photo photo10'></div>
-            </div>
-            </section>
+  const arrOfImages = [
+    "photo wide photo1",
+    "photo photo14",
+    "photo tall photo7",
+    "photo photo4",
+    "photo photo11",
+    "photo wide photo5",
+    "photo wide photo30",
+    "photo photo31",
+    "photo tall photo16",
+    "photo wide photo3",
+    "photo wide tall photo2",
+    "photo tall photo15",
+    "photo tall photo13",
+    "photo photo9",
+    "photo tall photo12",
+    "photo photo17",
+    "photo wide photo8",
+    "photo wide photo18",
+    "photo tall photo19",
+    "photo photo20",
+    "photo photo21",
+    "photo tall photo23",
+    "photo wide photo22",
+    "photo photo25",
+    "photo photo26",
+    "photo photo27",
+    "photo wide photo24",
+    "photo wide photo28",
+    "photo photo10",
+  ];
+
+  const [arrImageSize, setArrImageSize] = useState(false);
+
+  const toggleArrImageSize = () => {
+    setArrImageSize((prevState) => !prevState);
+  };
+
+  return (
+    <div className="backgroundWhite">
+      <section className="main">
+        <h3> Галерия </h3>
+        <div
+          className={`gallery ${arrImageSize ? "galleryLong" : "galleryShort"}`}
+        >
+          {arrOfImages
+            .slice(0, arrImageSize ? arrOfImages.length : 6)
+            .map((img, index) => (
+              <div key={index} className={img}></div>
+            ))}
         </div>
-    )
+        <center>
+          <button
+            className="contactLink showMoreImagesButton"
+            onClick={toggleArrImageSize}
+          >
+            {arrImageSize ? "По-малко снимки" : "Повече снимки"}
+          </button>
+        </center>
+      </section>
+    </div>
+  );
 }

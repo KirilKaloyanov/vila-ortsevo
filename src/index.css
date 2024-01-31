@@ -83,6 +83,12 @@ h4 {
   padding-bottom: 6rem;
 }
 
+@media screen and (max-width: 940px) {
+  .paddingBottom {
+    padding-bottom: 0;
+  }
+}
+
 .backgroundWhite {
   background-color: white;
 }
@@ -132,6 +138,17 @@ h4 {
   color: white;
   padding: 1rem 3rem 1.6rem 3rem;
   margin: 0 auto;
+}
+
+.showMoreImagesButton {
+  font-family: "Ysabeau Infant", sans-serif;
+  border: 0;
+  font-size: 2rem;
+  line-height: 1.4;
+  cursor: pointer;
+  border-radius: 1rem;
+  padding-top: 1.3rem;
+  margin-top: 2rem;
 }
 
 .credit {
