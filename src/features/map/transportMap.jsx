@@ -12,7 +12,7 @@ export default function TrapnsportMap() {
   });
 
   return (
-    <section>
+    <section className="paddingBottom">
       <h3>Местоположение</h3>
       <MapContainer
         center={[42.303205, 23.729939]}
@@ -26,7 +26,7 @@ export default function TrapnsportMap() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
-         <Marker position={[41.963205, 23.729939]}  icon={customIconHouse}/>
+        <Marker position={[41.963205, 23.729939]} icon={customIconHouse} />
 
         <GeoJSON data={sofiaOrtsevo} style={{ color: "darkblue" }}>
           <Popup>
@@ -39,7 +39,6 @@ export default function TrapnsportMap() {
             <span className="balloon">Пловдив - Вила Орцево (150 км)</span>
           </Popup>
         </GeoJSON>
-
       </MapContainer>
     </section>
   );

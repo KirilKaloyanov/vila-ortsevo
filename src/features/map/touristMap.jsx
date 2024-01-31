@@ -28,7 +28,7 @@ export default function Map() {
   });
 
   return (
-    <section>
+    <section className="paddingBottom">
       <h3>Пешеходни маршрути</h3>
       <MapContainer
         center={[41.977205, 23.729939]}
@@ -82,7 +82,6 @@ export default function Map() {
           </Popup>
         </GeoJSON>
 
-
         <GeoJSON data={ortsevoAvramovo}>
           <Popup>
             <span className={css.balloon}>с. Орцево - с. Аврамово</span>
@@ -93,7 +92,6 @@ export default function Map() {
             <span className={css.balloon}>ЖП гара Аврамово</span>
           </Popup>
         </Marker>
-
       </MapContainer>
     </section>
   );
