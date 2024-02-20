@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
       <div className="credit">
         <center>
-          Web design by <u>cosmoswebstudios</u>
+          Web design by <u>cosmoswebstudio</u>
         </center>
       </div>
     </div>
