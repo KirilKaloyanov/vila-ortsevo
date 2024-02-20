@@ -28939,7 +28939,7 @@ function cf() {
         children: E.jsxs("center", {
           children: [
             "Web design by ",
-            E.jsx("u", { children: "Cosmos webstudio" }),
+            E.jsx("u", { children: "cosmoswebstudios" }),
           ],
         }),
       }),
