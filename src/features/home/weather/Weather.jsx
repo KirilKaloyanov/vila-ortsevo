@@ -1,26 +1,25 @@
-import useFetchWeather from "../../../services/useFetchWeather.js";
-
+import useFetchMeteo from "../../../services/useFetchMeteo.js";
 
 import s from "./Weather.module.css";
 
 export default function Weather() {
-  const { data, isLoading } = useFetchWeather("current");
+  const { data, isLoading } = useFetchMeteo();
 
   let currentWeather = null;
 
-  if (data) currentWeather = data[0];
+  if (data) currentWeather = data.current;
 
   function weatherIcon(data) {
-    if (data.Precip1hr.Metric.Value >= 1) return "cloudy_snowing";
-    if (data.CloudCover > 50) return "wb_cloudy";
-    if (data.IsDayTime) return "sunny";
+    if (data.precipitation > 0) return "cloudy_snowing";
+    if (data.cloud_cover > 50) return "wb_cloudy";
+    if (data.is_day == 1) return "sunny";
     return "nights_stay";
   }
 
   if (!isLoading && currentWeather)
     return (
       <div>
-        {currentWeather.Temperature.Metric.Value}
+        {currentWeather.temperature_2m}
         <sup className={s.superText}>&deg;C</sup>
         <span className={"material-icons " + s.icon}>
           {weatherIcon(currentWeather)}

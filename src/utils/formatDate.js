@@ -1,5 +1,5 @@
 export default function formatDate(time) {
-  const date = new Date(time * 1000);
+  const date = new Date(time);
   const weekDay = date.getDay();
   const day = date.getDate();
   const month = date.getMonth();

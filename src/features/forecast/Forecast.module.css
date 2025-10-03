@@ -27,6 +27,12 @@
   font-size: 2rem;
 }
 
+.icon {
+  font-size: 10rem;
+  padding: 1rem 4rem;
+  color: var(--secondary-color);
+}
+
 img {
   font-size: 1.2rem;
 }
