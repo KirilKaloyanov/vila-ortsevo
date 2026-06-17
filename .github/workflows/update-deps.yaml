@@ -1,0 +1,38 @@
+name: Update project dependencies
+
+on: 
+  workflow_dispatch:
+
+permissions: 
+  contents: write
+
+jobs:
+  update:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4
+       - name: Install node
+         uses: actions/setup-node@v4
+         with:
+           node-version: 24
+       - name: Install dependencies
+         run: npm ci
+       - name: Update dependencies
+         run: npm update
+       - name: Stage and commit changes
+         id: commit
+         run: git diff --quiet && git diff --staged --quiet || git add . && git commit -m "Updates package.json and package-lock.json"
+       - name: Push changes
+         if: steps.commit.outcome == 'success' 
+         run: git push origin main
+       - name: Trigger build and deploy workflow 
+         if: steps.commit.outcome == 'success' 
+         run: gh workflow run "static.yaml" 
+         env: 
+           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+
+
+
+
