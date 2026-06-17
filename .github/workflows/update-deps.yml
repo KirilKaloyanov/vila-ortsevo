@@ -8,35 +8,41 @@ permissions:
 
 jobs:
   update:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Checkout
-         uses: actions/checkout@v4
-       - name: Install node
-         uses: actions/setup-node@v4
-         with:
-           node-version: 24
-       - name: Install dependencies
-         run: npm ci
-       - name: Update dependencies
-         run: npm update
-       - name: Config git user
-         run: |
-           git config user.name "github-action"
-           git config user.email "github-actions@github.com"
-       - name: Stage and commit changes
-         id: commit
-         run: |
-           git add .
-           git diff --staged --quiet || git commit -m "Updates package.json and package-lock.json"
-       - name: Push changes
-         if: steps.commit.outcome == 'success' 
-         run: git push origin main
-       - name: Trigger build and deploy workflow 
-         if: steps.commit.outcome == 'success' 
-         run: gh workflow run "static.yaml" 
-         env: 
-           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: npm ci
+      - name: Update dependencies
+        run: npm update
+      - name: Config git user
+        run: |
+          git config user.name "github-action"
+          git config user.email "github-actions@github.com"
+      - name: Stage and commit changes
+        id: commit
+        run: |
+          git add .
+          if git diff --staged --quiet; then 
+            echo "nothing to commit"
+          else
+            git commit -m "Updates package.json and package-lock.json"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      #
+      - name: Push changes
+        if: steps.commit.outputs.changed == 'true' 
+        run: git push origin main
+      - name: Trigger build and deploy workflow 
+        if: steps.commit.outputs.changed == 'true' 
+        run: gh workflow run "static.yml" 
+        env: 
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
 
 
